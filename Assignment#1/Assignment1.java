@@ -12,14 +12,18 @@ class Assignment1
 
         String line;
         int lineNum = 0;
+        int[] digits;
+        digits = new int[9];
 
         try
         {
             while ((line = br.readLine()) != null)
             {
-
+                lead = line.charAt(0);
+                digits[lead-1]++;
+                lineNum++
             }
-            br.close(); 
+            br.close();
         } catch (Exception e) {}
     }
 }
