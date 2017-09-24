@@ -4,15 +4,14 @@ class Assignment1
 {
     public static void main(String[] args)
     {
-        #TODO
+        System.out.println(readFile());
 
     }
-    public static void readFile()
+    public static String readFile()
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String line;
-        int lineNum = 0;
         int[] digits;
         int i = 0;
         digits = new int[9];
@@ -21,15 +20,12 @@ class Assignment1
         {
             while ((line = br.readLine()) != null)
             {
-                lead = line.charAt(0);
-                digits[lead-1]++;
-                //do we need to initialize the values in each index first?
-                lineNum++
-
-                for(int i = 0; j < line.length(); i++)
-                    file[i] = (line.charAt(i) == 'idk')
+                char lead = line.charAt(0);
+                int n = Character.getNumericValue(lead);
+                digits[n-1]++;
             }
             br.close();
         } catch (Exception e) {}
+        return (java.util.Arrays.toString(digits));
     }
 }
