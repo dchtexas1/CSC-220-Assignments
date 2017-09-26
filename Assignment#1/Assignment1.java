@@ -1,11 +1,13 @@
 import java.io.*;
+import java.text.DecimalFormat;
 
 class Assignment1
 {
+    static int[] digits;
     public static void main(String[] args)
     {
-        //System.out.println(readFile());
-        //System.out.println(compute());
+        System.out.println(readFile());
+        System.out.println(compute());
 
     }
     public static String readFile()
@@ -13,7 +15,6 @@ class Assignment1
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String line;
-        int[] digits;
         int i = 0;
         digits = new int[10];
 
@@ -29,21 +30,20 @@ class Assignment1
         } catch (Exception e) {}
         return (java.util.Arrays.toString(digits));
     }
-    public static String compute()
+    public static double[] compute()
     {
+        DecimalFormat df = new DecimalFormat("#.00"); //Move line to result()
+        double[] pct;
+        pct = new double[10];
+        int total = 0;
+        for (int i=0; i<digits.length; i++)
+        {
+            total+=digits[i];
+        }
         for (int i=0; i<10; i++)
         {
-            int[] pct;
-            int total = 0;
-            for (int j=0; i<digits.length; j++)
-            {
-                total+=digits[i];
-            }
-            for (int j=0; i<10; j++)
-            {
-                digits[i]/total*100 = pct[i];
-            }
+            pct[i] = (double)(digits[i])/(double)(total)*100.00;
         }
-        return (java.util.Arrays.toString(pct));
+        return pct;
     }
 }
