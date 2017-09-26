@@ -8,6 +8,7 @@ class Assignment1
     {
         System.out.println(readFile());
         System.out.println(compute());
+        printArray();
 
     }
     public static String readFile()
@@ -30,20 +31,41 @@ class Assignment1
         } catch (Exception e) {}
         return (java.util.Arrays.toString(digits));
     }
-    public static double[] compute()
+    public static int total()
     {
-        DecimalFormat df = new DecimalFormat("#.00"); //Move line to result()
-        double[] pct;
-        pct = new double[10];
         int total = 0;
         for (int i=0; i<digits.length; i++)
         {
             total+=digits[i];
         }
+        return total;
+    }
+    public static double[] compute()
+    {
+        double[] pct;
+        pct = new double[10];
         for (int i=0; i<10; i++)
         {
-            pct[i] = (double)(digits[i])/(double)(total)*100.00;
+            pct[i] = (double)(digits[i])/(double)(total())*100.00;
         }
         return pct;
+    }
+
+    public static void printArray()
+    {
+        DecimalFormat df = new DecimalFormat("#.00");
+        System.out.println("--------------------------------");
+        System.out.println("Leading Digit  Count           %");
+        System.out.println("--------------------------------");
+
+        for(int i = 0; i < digits.length; i++)
+        {
+            System.out.println(i + "              "+digits[i]+"              "
+            +df.format(compute()[i])+"%");
+        }
+        System.out.println("--------------------------------");
+        System.out.println("Total          " + total() + "     100.00%");
+        System.out.println("--------------------------------");
+        System.out.println();
     }
 }
