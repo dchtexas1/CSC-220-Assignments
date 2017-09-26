@@ -1,0 +1,37 @@
+ 1  
+ 2 a(0/-1) = NULL
+ 3 b(0/-1) = NULL
+ 4 a(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+ 5 b(26/0) = Z Y X W V U T S R Q P O N M L K J I H G F E D C B A 
+ 6 c(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+ 7 a(22/18) = A B C D E F G H I J K L M N O P Q R U V W X 
+ 8 a(21/20) = s C c E m G w I g K q M a O k Q u U o W X 
+ 9 a(20/19) = s C c E m G w I g K q M a O k Q u U o W 
+10 a(20/13) = s C c E m G w I g K q M a V k Q u U o W 
+11 a(19/13) = s C c E m G w I g K q M a k Q u U o W 
+12 a is not empty
+13 a is not full
+14 a(50/17) = s C c E m G w I g K q M a k Q u U f e d c b a z y x w v u t s r q p o n m l k j i h g f e d c b a o 
+15 c(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+16 a is not empty
+17 a is full
+18 a(50/17) = s C c E m G w I g K q M a k Q u U f e d c b a z y x w v u t s r q p o n m l k j i h g f e d c b a o 
+19 d(50/49) = s C c E m G w I g K q M a k Q u U f e d c b a z y x w v u t s r q p o n m l k j i h g f e d c b a o 
+20 a == d
+21 a(49/17) = s C c E m G w I g K q M a k Q u U e d c b a z y x w v u t s r q p o n m l k j i h g f e d c b a o 
+22 d(50/49) = s C c E m G w I g K q M a k Q u U f e d c b a z y x w v u t s r q p o n m l k j i h g f e d c b a o 
+23 a != d
+24 a(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+25 b(26/0) = Z Y X W V U T S R Q P O N M L K J I H G F E D C B A 
+26 c(25/24) = A B C D E F G H I J K L M N O P Q R S T U V W X Y 
+27 a != c
+28 a(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+29 b(26/0) = Z Y X W V U T S R Q P O N M L K J I H G F E D C B A 
+30 e(50/49) = Z Y X W V U T S R Q P O N M L K J I H G F E D C B A A B C D E F G H I J K L M N O P Q R S T U V W X 
+31 a(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+32 b(0/-1) = NULL
+33 c(0/-1) = NULL
+34 e(50/49) = Z Y X W V U T S R Q P O N M L K J I H G F E D C B A A B C D E F G H I J K L M N O P Q R S T U V W X 
+35 a(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+36 b(0/-1) = NULL
+37 f(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
