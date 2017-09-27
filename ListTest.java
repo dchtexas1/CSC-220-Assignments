@@ -36,7 +36,7 @@ public class ListTest
 			a.Next();
 		}
 		System.out.println(" 8 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
-/*		a.Last();
+		a.Last();
 		a.Next();
 		a.Next();
 		a.Remove();
@@ -88,6 +88,5 @@ public class ListTest
 		System.out.println("35 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		System.out.println("36 b(" + b.GetSize() + "/" + b.GetPos() + ") = " + b);
 		System.out.println("37 f(" + f.GetSize() + "/" + f.GetPos() + ") = " + f);
-*/
 	}
 }

@@ -71,7 +71,7 @@ public class List
 	// there should be no wrap-around
 	public void Prev()
 	{
-		if (!IsEmpty())
+		if (!IsEmpty() && curr > 0)
 		{
 			curr--;
 		}
@@ -82,7 +82,7 @@ public class List
 	// there should be no wrap-around
 	public void Next()
 	{
-		if (!IsEmpty())
+		if (!IsEmpty() && curr < end)
 		{
 			curr++;
 		}
@@ -210,13 +210,24 @@ public class List
 	// returns if the list is full
 	public boolean IsFull()
 	{
-		return false;
+		return end >= MAX_SIZE - 1;
 	}
 
 	// returns if two lists are equal (by value)
 	public boolean Equals(List l)
 	{
-		return false;
+		if (GetSize() != l.GetSize())
+		{
+			return false;
+		}
+		for (int i=0; i<GetSize(); i++)
+		{
+			if (list[i] != l.list[i])
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	// returns the concatenation of two lists
@@ -226,7 +237,12 @@ public class List
 	// the last element of the new list is the current
 	public List Add(List l)
 	{
-		List m = new List();
+		List m = new List(this);
+		for (int i=0; i<l.GetSize(); i++)
+		{
+			m.InsertAfter(l.list[i]);
+		}
+
 		return m;
 	}
 

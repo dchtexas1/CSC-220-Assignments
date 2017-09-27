@@ -1,17 +1,16 @@
 import java.io.*;
-import java.text.DecimalFormat;
 
 class Assignment1
 {
     static int[] digits;
     public static void main(String[] args)
     {
-        System.out.println(readFile());
-        System.out.println(compute());
+        readFile();
+        compute();
         printArray();
 
     }
-    public static String readFile()
+    public static void readFile()
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -29,7 +28,6 @@ class Assignment1
             }
             br.close();
         } catch (Exception e) {}
-        return (java.util.Arrays.toString(digits));
     }
     public static int total()
     {
@@ -53,19 +51,21 @@ class Assignment1
 
     public static void printArray()
     {
-        DecimalFormat df = new DecimalFormat("#.00");
-        System.out.println("--------------------------------");
-        System.out.println("Leading Digit  Count           %");
-        System.out.println("--------------------------------");
+        String line = "--------------------------------";
+        String line2 = "================================";
+        String lead;
+        String pct;
+        System.out.printf("%s %n %-19s %1s %n %s %n", line, "Leading Digit\tCount", "\t %", line);
 
         for(int i = 0; i < digits.length; i++)
         {
-            System.out.println(i + "              "+digits[i]+"              "
-            +df.format(compute()[i])+"%");
+            lead = i + "\t\t" + digits[i];
+            pct = "\t" + compute()[i] + "%";
+            System.out.printf("%s %s %6.2f %-1s %n", lead, "\t", compute()[i], "%");
         }
         System.out.println("--------------------------------");
-        System.out.println("Total          " + total() + "     100.00%");
-        System.out.println("--------------------------------");
+        System.out.println("Total\t\t"+total()+"\t100.00%");
+        System.out.println("================================");
         System.out.println();
     }
 }
