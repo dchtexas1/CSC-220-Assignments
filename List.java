@@ -242,7 +242,6 @@ public class List
 		{
 			m.InsertAfter(l.list[i]);
 		}
-
 		return m;
 	}
 
