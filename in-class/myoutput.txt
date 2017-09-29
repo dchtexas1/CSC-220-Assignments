@@ -27,11 +27,11 @@
 27 a != c
 28 a(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
 29 b(26/0) = Z Y X W V U T S R Q P O N M L K J I H G F E D C B A 
-30 e(0/-1) = NULL
+30 e(50/49) = Z Y X W V U T S R Q P O N M L K J I H G F E D C B A A B C D E F G H I J K L M N O P Q R S T U V W X 
 31 a(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
 32 b(0/-1) = NULL
 33 c(0/-1) = NULL
-34 e(0/-1) = NULL
+34 e(50/49) = Z Y X W V U T S R Q P O N M L K J I H G F E D C B A A B C D E F G H I J K L M N O P Q R S T U V W X 
 35 a(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
 36 b(0/-1) = NULL
-37 f(0/-1) = NULL
+37 f(26/25) = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 

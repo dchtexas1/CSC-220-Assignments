@@ -12,10 +12,10 @@ public class ListTest
 		System.out.println(" 1 " + a.GetValue());
 		System.out.println(" 2 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		System.out.println(" 3 b(" + b.GetSize() + "/" + b.GetPos() + ") = " + b);
-		for (int i=0; i<=25; i++)
+		for (int i=1; i<=25; i++)
 		{
-			a.InsertAfter((char)(i%26+65));
-			b.InsertBefore((char)(i%26+65));
+			a.InsertAfter(i);
+			b.InsertBefore(i);
 		}
 		System.out.println(" 4 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		System.out.println(" 5 b(" + b.GetSize() + "/" + b.GetPos() + ") = " + b);
@@ -32,7 +32,7 @@ public class ListTest
 		a.Remove();
 		for (int i=0; i<a.GetSize()/2; a.Next(),i++)
 		{
-			a.Replace((char)(a.GetValue()*5%26+97));
+			a.Replace(a.GetValue()*5);
 			a.Next();
 		}
 		System.out.println(" 8 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
@@ -42,7 +42,7 @@ public class ListTest
 		a.Remove();
 		System.out.println(" 9 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		a.SetPos(a.GetSize()*2/3);
-		a.Replace((char)(a.GetValue()*12345%26+65));
+		a.Replace(a.GetValue()*12345);
 		System.out.println("10 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		a.SetPos(a.GetSize());
 		a.Remove();
@@ -52,7 +52,7 @@ public class ListTest
 		System.out.println("12 a is " + (!a.IsEmpty() ? "not " : "") + "empty");
 		System.out.println("13 a is " + (!a.IsFull() ? "not " : "") + "full");
 		for (int i=0; i<1000; i++)
-			a.InsertBefore((char)(i%26+97));
+			a.InsertBefore(i);
 		System.out.println("14 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		System.out.println("15 c(" + c.GetSize() + "/" + c.GetPos() + ") = " + c);
 		System.out.println("16 a is " + (!a.IsEmpty() ? "not " : "") + "empty");
@@ -88,5 +88,6 @@ public class ListTest
 		System.out.println("35 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		System.out.println("36 b(" + b.GetSize() + "/" + b.GetPos() + ") = " + b);
 		System.out.println("37 f(" + f.GetSize() + "/" + f.GetPos() + ") = " + f);
+
 	}
 }

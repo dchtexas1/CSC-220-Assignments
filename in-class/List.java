@@ -63,7 +63,6 @@ public class List
 		{
 			curr = pos;
 		}
-
 	}
 
 	// navigates to the previous element
@@ -71,7 +70,7 @@ public class List
 	// there should be no wrap-around
 	public void Prev()
 	{
-		if (!IsEmpty() && curr > 0)
+		if (!IsEmpty() && (curr > 0))
 		{
 			curr--;
 		}
@@ -82,7 +81,7 @@ public class List
 	// there should be no wrap-around
 	public void Next()
 	{
-		if (!IsEmpty() && curr < end)
+		if (!IsEmpty() && (curr < end))
 		{
 			curr++;
 		}
@@ -159,9 +158,7 @@ public class List
 				Next();
 				InsertBefore(data);
 			}
-
 		}
-
 	}
 
 	// removes the current element (collapsing the list)
@@ -194,7 +191,6 @@ public class List
 		{
 			list[curr] = data;
 		}
-
 	}
 
 	// returns if the list is empty
