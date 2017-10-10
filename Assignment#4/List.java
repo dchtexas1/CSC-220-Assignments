@@ -58,8 +58,6 @@ public class List
 	{
 		head = new Node();
 		tail = curr = head;
-		tail.setData(-1);
-		curr.setData(-1);
 	}
 
 	// copy constructor
@@ -89,11 +87,11 @@ public class List
 	// this should not be possible for invalid positions
 	public void SetPos(int pos)
 	{
-		if (!IsEmpty() && !(pos > IndexOf(tail)))
+/*		if (!IsEmpty() && !(pos > IndexOf(tail)))
 		{
 
 		}
-
+*/
 	}
 
 	// navigates to the previous element
@@ -108,11 +106,11 @@ public class List
 	// there should be no wrap-around
 	public void Next()
 	{
-		if (!IsEmpty() && (IndexOf(curr) < IndexOf(tail))
+/*		if (!IsEmpty() && (IndexOf(curr) < IndexOf(tail)))
 		{
 			curr = curr.getLink();
 		}
-
+*/
 	}
 
 	// returns the location of the current element (or -1)
@@ -146,7 +144,7 @@ public class List
 	// this should not be possible for a full list
 	public void InsertBefore(int data)
 	{
-		if (IsEmpty())
+/*		if (IsEmpty())
 		{
 			tail.setLink(new Node());
 			tail = tail.getLink();
@@ -166,7 +164,7 @@ public class List
 			}
 
 		}
-
+*/
 	}
 
 	// inserts an item after the current element
@@ -202,6 +200,7 @@ public class List
 	// this should not be possible for an empty list
 	public void Replace(int data)
 	{
+		curr.setData(data);
 	}
 
 	// returns if the list is empty
