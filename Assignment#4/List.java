@@ -1,39 +1,71 @@
 /* ***************************************************
  * Dax Henson
- * 2017-09-29
+ * 2017-10-13
  * List.java
  *
- * Contains a class for manipulation of lists; used by ListTest.java.
+ * <a simple, short program/class description>
  *************************************************** */
 
-// the EasyList class
+// the Node class
+class Node
+{
+	private int data;
+	private Node link;
+
+	// constructor
+	public Node()
+	{
+		this.data = 0;
+		this.link = null;
+	}
+
+	// accessor and mutator for the data component
+	public int getData()
+	{
+		return this.data;
+	}
+
+	public void setData(int data)
+	{
+		this.data = data;
+	}
+
+	// accessor and mutator for the link component
+	public Node getLink()
+	{
+		return this.link;
+	}
+
+	public void setLink(Node link)
+	{
+		this.link = link;
+	}
+}
+
+// the List class
 public class List
 {
 	public static final int MAX_SIZE = 50;
 
-	private int end;	// the index of the last valid item in the list
-	private int curr;	// the index of the current item in the list
-	private int[] list;	// the list
+	private Node head;
+	private Node tail;
+	private Node curr;
+	private int num_items;
 
 	// constructor
 	// remember that an empty list has a "size" of -1 and its "position" is at -1
 	public List()
 	{
-		end = curr = -1;
-		list = new int[MAX_SIZE];
+		head = new Node();
+		tail = curr = head;
+		tail.setData(-1);
+		curr.setData(-1);
 	}
 
 	// copy constructor
 	// clones the list l and sets the last element as the current
 	public List(List l)
 	{
-		this.list = new int[MAX_SIZE];
-		end = curr = -1;
-
-		for (int i=0; i<l.GetSize(); i++)
-		{
-			InsertAfter(l.list[i]);
-		}
 	}
 
 	// navigates to the beginning of the list
@@ -41,7 +73,7 @@ public class List
 	{
 		if (!IsEmpty())
 		{
-			curr = 0;
+			curr = head;
 		}
 	}
 
@@ -49,7 +81,7 @@ public class List
 	// the end of the list is at the last valid item in the list
 	public void Last()
 	{
-		curr = end;
+		curr = tail;
 	}
 
 	// navigates to the specified element (0-index)
@@ -57,10 +89,11 @@ public class List
 	// this should not be possible for invalid positions
 	public void SetPos(int pos)
 	{
-		if (!IsEmpty() && !(pos > end))
+		if (!IsEmpty() && !(pos > IndexOf(tail)))
 		{
-			curr = pos;
+
 		}
+
 	}
 
 	// navigates to the previous element
@@ -68,10 +101,6 @@ public class List
 	// there should be no wrap-around
 	public void Prev()
 	{
-		if (!IsEmpty() && (curr > 0))
-		{
-			curr--;
-		}
 	}
 
 	// navigates to the next element
@@ -79,17 +108,17 @@ public class List
 	// there should be no wrap-around
 	public void Next()
 	{
-		if (!IsEmpty() && (curr < end))
+		if (!IsEmpty() && (IndexOf(curr) < IndexOf(tail))
 		{
-			curr++;
+			curr = curr.getLink();
 		}
-	}
 
+	}
 
 	// returns the location of the current element (or -1)
 	public int GetPos()
 	{
-		return curr;
+		return -1;
 	}
 
 	// returns the value of the current element (or -1)
@@ -101,7 +130,7 @@ public class List
 		}
 		else
 		{
-			return list[curr];
+			return curr.getData();
 		}
 	}
 
@@ -109,7 +138,7 @@ public class List
 	// size does not imply capacity
 	public int GetSize()
 	{
-		return end + 1;
+		return num_items;
 	}
 
 	// inserts an item before the current element
@@ -119,22 +148,25 @@ public class List
 	{
 		if (IsEmpty())
 		{
-			curr++;
-			end++;
-			list[curr] = data;
+			tail.setLink(new Node());
+			tail = tail.getLink();
+			tail.setData(data);
+			curr = tail;
+			num_items++;
 		}
 		else
 		{
 			if (!IsFull())
 			{
-				for (int i=end; i>=curr; i--)
+				for (int i=num_items; i>=; )
 				{
-					list[i+1] = list[i];
+
 				}
-				list[curr] = data;
-				end++;
+
 			}
+
 		}
+
 	}
 
 	// inserts an item after the current element
@@ -142,13 +174,15 @@ public class List
 	// this should not be possible for a full list
 	public void InsertAfter(int data)
 	{
-		if (!IsFull())
+		if(!IsFull())
 		{
-			if (curr == end)
+			if(curr == tail)
 			{
-				curr++;
-				end++;
-				list[curr] = data;
+				tail.setLink(new Node());
+				tail = tail.getLink();
+				tail.setData(data);
+				curr = tail;
+				num_items++;
 			}
 			else
 			{
@@ -162,48 +196,24 @@ public class List
 	// this should not be possible for an empty list
 	public void Remove()
 	{
-		if (!IsEmpty())
-		{
-			if (curr == end)
-			{
-				curr--;
-				end--;
-			}
-			else
-			{
-				for (int i=curr; i<end; i++)
-				{
-					list[i] = list[i+1];
-				}
-				end--;
-			}
-		}
 	}
 
 	// replaces the value of the current element with the specified value
 	// this should not be possible for an empty list
 	public void Replace(int data)
 	{
-		if (!IsEmpty())
-		{
-			list[curr] = data;
-		}
 	}
 
 	// returns if the list is empty
 	public boolean IsEmpty()
 	{
-		if (end == -1)
-		{
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	// returns if the list is full
 	public boolean IsFull()
 	{
-		return end >= MAX_SIZE - 1;
+		return false;
 	}
 
 	// returns if two lists are equal (by value)
@@ -213,14 +223,11 @@ public class List
 		{
 			return false;
 		}
-		for (int i=0; i<GetSize(); i++)
+		for (; ; )
 		{
-			if (list[i] != l.list[i])
-			{
-				return false;
-			}
+
 		}
-		return true;
+
 	}
 
 	// returns the concatenation of two lists
@@ -230,12 +237,7 @@ public class List
 	// the last element of the new list is the current
 	public List Add(List l)
 	{
-		List m = new List(this);
-		for (int i=0; i<l.GetSize(); i++)
-		{
-			m.InsertAfter(l.list[i]);
-		}
-		return m;
+		return null;
 	}
 
 	// returns a string representation of the entire list (e.g., 1 2 3 4 5)
@@ -244,14 +246,16 @@ public class List
 	{
 		if (IsEmpty())
 		{
-		    return "NULL";
+			return  "NULL";
 		}
 		else
 		{
 			String s = "";
 			for (int i=0; i<GetSize(); i++)
 			{
-				s += (list[i] + " ");
+				curr = head;
+				s +=(curr.getData() + " ");
+				curr = curr.getLink();
 			}
 			return s;
 		}
