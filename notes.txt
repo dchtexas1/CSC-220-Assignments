@@ -478,7 +478,262 @@ public class Magic
 	}
 }
 
+public class Queue
+{
+	Node head;
+	Node tail;
 
-<head>-[5|]-[10|]-[15|]
-<tail>---------------|
-<curr>---------|
+	public Queue()
+	{
+		head = tail = null;
+	}
+	public void enqueue(int x)
+	{
+		Node n = new Node();
+		n.setData();
+		n.setLink(null)
+
+		if (head == null)
+		{
+			head = tail = n;
+		}
+		else
+		{
+			tail.setLink(n);
+			tail = n;
+		}
+	}
+	public int dequeue()
+	{
+		if (head != null)
+		{
+			n = head.getData();
+			head = head.getlink();
+			return n;
+		}
+		return -1;
+	}
+
+	public String toString();
+	{
+		if (head == null)
+		{
+			return "NULL"
+		}
+		else
+		{
+			String s = "";
+			Node n = head;
+			while (n != null)
+			{
+				s += n.getData() + ", ";
+				n = n.getLink();
+			}
+			return s;
+		}
+	}
+}
+
+import java.util.Random;
+class Magic2
+{
+	public static void main(String [] args)
+	{
+		Random r = new Random();
+		Queue q = new Queue();
+
+		for(int i=0; i<20; i++)
+		{
+			q.enqueue(r.nextInt(100));
+		}
+
+		int x = q.dequeue();
+		while (x != -)
+		{
+			System.out.print(x + ", ");
+			x = q.dequeue()
+		}
+		System.out.println();
+		System.out.println(q);
+	}
+}
+
+class Generics
+{
+	public static <josh>void print(josh [] array)
+	{
+		for (int i=0; i<array.length(); i++)
+		{
+			System.out.print(array[i] + ", ");
+		}
+		System.out.println();
+	}
+	public static void main(String [] args)
+	{
+		Integer [] intArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+		Float [] floatArr = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 0.1f}
+		Double [] doubleArr = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 0.1}
+		Character [] charArr = {a, b, c, d, e, 7, g, h, i, \0}
+
+		print(intArr);
+		print(floatArr);
+		print(doubleArr);
+		print(charArr);
+	}
+}
+
+public class Node<jordan>
+{
+	private jordan data;
+	private Node<jordan> link;
+
+	public Node()
+	{
+		data = null;
+		link = null;
+	}
+
+	public void setData(jordan x)
+	{
+		this.data = x
+	}
+	public int getData()
+	{
+	return this.data;
+	}
+	public void setLink(Node<jordan> link)
+	{
+		this.link = link;
+	}
+	public Node<jordan> getLink()
+	{
+		return this.link;
+	}
+}
+
+public class Stack<jordan>
+{
+	private Node<jordan> head;
+
+	public Stack()
+	{
+		head = null;
+	}
+	public void push(jordan x);
+	{
+		Node<jordan> n = new Node<jordan>();
+		n.setData(x);
+
+		n.setLink(head);
+		head = n;
+	}
+	public jordan pop()
+	{
+		if(head != null)
+		{
+			Node<jordan> n = head;
+			head = head.getLink();
+			return n.getData();
+		}
+		return null;
+	}
+	public String toString();
+	{
+		if (head == null)
+		{
+			return "NULL"
+		}
+		else
+		{
+			String s = "";
+			Node<jordan> temp = head;
+			while (n != null)
+			{
+				s += temp.getData().toString() + ", ";
+				temp = temp.getLink();
+			}
+			return s;
+		}
+	}
+}
+
+
+import java.util.Random;
+public class Magic
+{
+	public static void main(String [] args)
+	{
+		Stack<Integer> s = new Stack<Integer>();
+		s.push(10);
+		s.push(11);
+		s.push(12);
+		s.push(13);
+		s.push(14);
+		s.push(15);
+		s.push(16);
+		s.push(17);
+		s.push(18);
+
+		System.out.println(s);
+
+		Integer x = s.pop();
+		while(x != -1)
+		{
+			System.out.println("after popping:\t" + x);
+			System.out.println(s);
+			x = s.pop()
+		}
+		Stack<Character> t = new Stack<Character>();
+		Random r = new Random();
+		for(int i=0; i<20; i++)
+		{
+			Character c = (char)(r.nextInt(57) + 65);
+			t.push(c);
+		}
+		System.out.println(t);
+		Character y = t.pop();
+		while(y != null)
+		{
+			System.out.print("after popping\t");
+			System.out.println(t);
+			y = t.pop();
+		}
+	}
+}
+==============================================================================
+
+				Insertion	Deletion	Search
+Array			O(1)		O(1)		O(n)
+Ordered Array	O(n)		O(n)		O(lg n)
+Linked List		O(1)		O(1)		O(n)
+-----------------------------------------------
+Binary Tree		O()
+	-has root
+	-each node has max of two children
+	-L_r(left of root)	R_r(right of root)
+	-branches
+	-Path AG = AB, BD, DG -> length=3
+	-Level E = 2
+	-Height = 4
+
+class Node
+{
+	int data;
+	Node Left;
+	Node Right;
+}
+Traverse
+	LRN		//post order traversal
+	LNR		//in order traversal
+	NLR		//pre order traversal
+
+void Traverse(Node n)
+{
+	if(n != null)
+	{
+		//in order
+		Traverse(n.getLeft());
+		System.out.print(n.getData());
+		Traverse(n.getRight());
+	}
+}

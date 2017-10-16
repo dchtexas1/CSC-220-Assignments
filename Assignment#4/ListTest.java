@@ -12,14 +12,14 @@ public class ListTest
 		System.out.println(" 1 " + a.GetValue());
 		System.out.println(" 2 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		System.out.println(" 3 b(" + b.GetSize() + "/" + b.GetPos() + ") = " + b);
-/*		for (int i=1; i<=25; i++)
+		for (int i=1; i<=25; i++)
 		{
 			a.InsertAfter(i);
 			b.InsertBefore(i);
 		}
 		System.out.println(" 4 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		System.out.println(" 5 b(" + b.GetSize() + "/" + b.GetPos() + ") = " + b);
-/*		List c = new List(a);
+		List c = new List(a);
 		System.out.println(" 6 c(" + c.GetSize() + "/" + c.GetPos() + ") = " + c);
 		a.Remove();
 		a.Remove();
@@ -88,6 +88,5 @@ public class ListTest
 		System.out.println("35 a(" + a.GetSize() + "/" + a.GetPos() + ") = " + a);
 		System.out.println("36 b(" + b.GetSize() + "/" + b.GetPos() + ") = " + b);
 		System.out.println("37 f(" + f.GetSize() + "/" + f.GetPos() + ") = " + f);
-*/
 	}
 }
