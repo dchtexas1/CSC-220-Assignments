@@ -3,12 +3,12 @@ public class One
 	public static void main(String[] args)
 	{
 		String s = "";
-		System.out.println(F(5));
-		System.out.println(F2(0, 5));
-		System.out.println(F3(5));
-		System.out.println(F4(352));
-		System.out.println(F5(5));
-		System.out.println(F6(985161554, s));
+		System.out.println("a) " + F(5));
+		System.out.println("b) " + F2(0, 5));
+		System.out.println("c) " + F3(5));
+		System.out.println("d) " + F4(352));
+		System.out.println("e) " + F5(5));
+		System.out.println("5) " + F6(54321, s));
 	}
 
 	static int F(int n)
@@ -63,12 +63,11 @@ public class One
 
 	static String F6(int n, String s)
 	{
-		int x = n%10;
 		if (n == 0)
 		{
 			return s;
 		}
-		s += x;
+		s += n%10;
 		return F6(n / 10, s);
 	}
 }

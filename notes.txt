@@ -737,3 +737,61 @@ void Traverse(Node n)
 		Traverse(n.getRight());
 	}
 }
+==============================================================================
+
+Time Analysis (T(n) O())
+
+Arrays
+	declaration
+	initialize
+	two-dimensional arrays
+	{
+		int [] arrayName; //declaration
+		arrayName = new int[10]; //initialization
+
+		int [] arrayName = new int[10]; //one line
+
+		int [] arrayName = {1,2,3,4,5,6}; //all values initialized
+	}
+	{
+		int [][] matrix = new int [5][10];
+		matrix.length == 5
+		matrix[2] == 10
+	}
+	can you create a 10*10 array
+		with a checkerboard pattern of 0s and 5s
+		pattern of "+" >=(n,n) and "-" < (n,n)
+			for
+			{
+				for
+				{
+					if (r > c)
+						arr[r][c] = '-';
+					else
+						arr[r][c] = '+';
+				}
+			}
+		pattern of alternating columns of 0s and 5s
+			if (c%2 == 0)
+			{
+				[c][r] = '5'
+			}
+Searching and Sorting
+	linear search
+	binary search
+	insertions sort
+	selection sort
+	bubble sort
+	optimized bubble sort
+Manipulating Linked Lists
+	insertion (head, tail, middle)
+
+	head				 tail
+		\					 \
+		[2| ]->[4| ]->[8| ]->[10| ]
+	n []-
+
+	deletion
+Stacks & Queues
+Converting infix -> postfix
+==============================================================================
