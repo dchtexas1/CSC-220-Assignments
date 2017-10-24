@@ -10,7 +10,8 @@ class Stack<datatype> extends List<datatype>
 	}
 	public void Push(datatype x);
 	{
-
+		First();
+		InsertBefore(x);
 	}
 	public datatype Pop()
 	{
