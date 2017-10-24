@@ -9,50 +9,50 @@
 
 
 // the Node class
-class Node
+class Node<datatype>
 {
-	private int data;
-	private Node link;
+	private datatype data;
+	private Node<datatype> link;
 
 	// constructor
-	public Node()
+	public Node<datatype>()
 	{
-		this.data = 0;
-		this.link = null;
+		data = null;
+		link = null;
 	}
 
 	// accessor and mutator for the data component
-	public int getData()
+	public datatype getData()
 	{
 		return this.data;
 	}
 
-	public void setData(int data)
+	public void setData(datatype data)
 	{
 		this.data = data;
 	}
 
 	// accessor and mutator for the link component
-	public Node getLink()
+	public Node<datatype> getLink()
 	{
 		return this.link;
 	}
 
-	public void setLink(Node link)
+	public void setLink(Node<datatype> link)
 	{
 		this.link = link;
 	}
 }
 
 // the List class
-class List
+class List<datatype>
 {
 	public static final int MAX_SIZE = 50;
 
-	private Node head;
-	private Node tail;
-	private Node curr;
-	private Node temp;
+	private Node<datatype> head;
+	private Node<datatype> tail;
+	private Node<datatype> curr;
+	private Node<datatype> temp;
 	private int num_items;
 
 	// constructor
@@ -68,12 +68,12 @@ class List
 	public List(List l)
 	{
 		curr = head;
-		int n;
+		datatype n;
 		int lPos = l.GetPos();
 		l.First();
 		for (int i = 0; i < l.GetSize(); i++)
 		{
-			n = l.GetValue();
+			n = (datatype)l.GetValue();
 			InsertAfter(n);
 			l.Next();
 		}
@@ -156,11 +156,11 @@ class List
 		return i;
 	}
 
-	// returns the value of the current element (or -1)
-	public int GetValue()
+	// returns the value of the current element (or null)
+	public datatype GetValue()
 	{
 		if (this.IsEmpty())
-			return -1;
+			return null;
 		else
 			return curr.getData();
 	}
@@ -174,13 +174,13 @@ class List
  	// inserts an item before the current element
 	// the new element becomes the current
 	// this should not be possible for a full list
-	public void InsertBefore(int data)
+	public void InsertBefore(datatype data)
 	{
 		if (!this.IsFull())
 		{
 			if (curr == head)
 			{
-				Node n = new Node();
+				Node<datatype> n = new Node<datatype>();
 				n.setData(data);
 				if (curr == null)
 				{
@@ -205,11 +205,11 @@ class List
 	// inserts an item after the current element
 	// the new element becomes the current
 	// this should not be possible for a full list
-	public void InsertAfter(int data)
+	public void InsertAfter(datatype data)
 	{
 		if (!this.IsFull())
 		{
-			Node n = new Node();
+			Node<datatype> n = new Node<datatype>();
 			if (this.IsEmpty())
 			{
 				head = n;
@@ -263,7 +263,7 @@ class List
 
 	// replaces the value of the current element with the specified value
 	// this should not be possible for an empty list
-	public void Replace(int data)
+	public void Replace(datatype data)
 	{
 		if (!this.IsEmpty())
 		{
@@ -302,7 +302,7 @@ class List
 			l.First();
 			while (curr != tail)
 			{
-				if (this.GetValue() != l.GetValue())
+				if ((datatype)this.GetValue() != (datatype)l.GetValue())
 				{
 					this.SetPos(pos);
 					l.SetPos(lPos);
@@ -323,17 +323,17 @@ class List
 	// l should be concatenated to the end of *this
 	// the returned list should not exceed MAX_SIZE elements
 	// the last element of the new list is the current
-	public List Add(List l)
+	public List<datatype> Add(List l)
 	{
 		int pos = this.GetPos();
 		int lPos = l.GetPos();
-		int val;
-		List newList = new List(this);
+		datatype val;
+		List<datatype> newList = new List<datatype>(this);
 		newList.Last();
 		l.First();
 		for (int i = 0; i < l.GetSize(); i++)
 		{
-			val = l.GetValue();
+			val = (datatype)l.GetValue();
 			newList.InsertAfter(val);
 			l.Next();
 		}

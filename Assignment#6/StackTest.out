@@ -1,0 +1,113 @@
+*declare stack s1
+s1=NULL
+s1.Size()=0
+s1.IsEmpty()=T
+s1.IsFull()=F
+s1.Peek()=null
+
+*Push(i+100) 1000 times
+s1=149 148 147 146 145 144 143 142 141 140 139 138 137 136 135 134 133 132 131 130 129 128 127 126 125 124 123 122 121 120 119 118 117 116 115 114 113 112 111 110 109 108 107 106 105 104 103 102 101 100 
+s1.Size()=50
+s1.IsEmpty()=F
+s1.IsFull()=T
+s1.Peek()=149
+
+*pop 10 times
+s1=139 138 137 136 135 134 133 132 131 130 129 128 127 126 125 124 123 122 121 120 119 118 117 116 115 114 113 112 111 110 109 108 107 106 105 104 103 102 101 100 
+s1.Size()=40
+s1.IsEmpty()=F
+s1.IsFull()=F
+s1.Peek()=139
+
+*pop 1000 times
+s1=NULL
+s1.Size()=0
+s1.IsEmpty()=T
+s1.IsFull()=F
+s1.Peek()=null
+
+*push 10 times with i*i
+s1=81 64 49 36 25 16 9 4 1 0 
+s1.Size()=10
+s1.IsEmpty()=F
+s1.IsFull()=F
+s1.Peek()=81
+
+*declare s2 as a copy of s1 (stack s2(s1))
+s2=81 64 49 36 25 16 9 4 1 0 
+s2.Size()=10
+s2.IsEmpty()=F
+s2.IsFull()=F
+s2.Peek()=81
+
+*declare s3 as a copy of s2 (stack s3 = s2)
+s3=81 64 49 36 25 16 9 4 1 0 
+s3.Size()=10
+s3.IsEmpty()=F
+s3.IsFull()=F
+s3.Peek()=81
+
+*reset s2 to 0
+s2=NULL
+s2.Size()=0
+s2.IsEmpty()=T
+s2.IsFull()=F
+s2.Peek()=null
+
+s1=81 64 49 36 25 16 9 4 1 0 
+s2=NULL
+s3=81 64 49 36 25 16 9 4 1 0 
+s1 == s2; =F
+s1 == s3; =T
+s1 != s3; =F
+
+*s1 = s1 + s2
+s1=81 64 49 36 25 16 9 4 1 0 
+s1.Size()=10
+s1.IsEmpty()=F
+s1.IsFull()=F
+s1.Peek()=81
+
+*pop s1 5 times
+s1=16 9 4 1 0 
+s2=NULL
+s3=81 64 49 36 25 16 9 4 1 0 
+
+*s1 = s1 + s3
+s1=16 9 4 1 0 81 64 49 36 25 16 9 4 1 0 
+s1.Size()=15
+s1.IsEmpty()=F
+s1.IsFull()=F
+s1.Peek()=16
+
+*set s1 to 0 then s1 = s1 + s3
+s1=81 64 49 36 25 16 9 4 1 0 
+
+s1 += s3;
+s1=81 64 49 36 25 16 9 4 1 0 81 64 49 36 25 16 9 4 1 0 
+s1.Size()=20
+s1.IsEmpty()=F
+s1.IsFull()=F
+s1.Peek()=81
+
+s1=81 64 49 36 25 16 9 4 1 0 81 64 49 36 25 16 9 4 1 0 
+s2=NULL
+s3=81 64 49 36 25 16 9 4 1 0 
+s3.Peek()=81
+
+*push s3 8 times with i (backwards)
+s3=1 2 3 4 5 6 7 8 81 64 49 36 25 16 9 4 1 0 
+s3.Peek()=1
+
+*s3 += s1
+s3=1 2 3 4 5 6 7 8 81 64 49 36 25 16 9 4 1 0 81 64 49 36 25 16 9 4 1 0 81 64 49 36 25 16 9 4 1 0 
+s3.Size()=38
+s3.IsEmpty()=F
+s3.IsFull()=F
+s3.Peek()=1
+
+s4=z y x w v u t s r q p o n m l k j i h g f e d c b a 
+s4.Size()=26
+s4.IsEmpty()=F
+s4.IsFull()=F
+s4.Peek()=z

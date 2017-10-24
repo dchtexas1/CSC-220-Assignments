@@ -795,3 +795,81 @@ Manipulating Linked Lists
 Stacks & Queues
 Converting infix -> postfix
 ==============================================================================
+
+binary trees
+
+insert
+find min
+find max
+search
+search(node n)
+{
+	n.getLeft()
+}
+
+deletion
+case:
+	has one child
+		set grandparent to point directly to child
+	has two children
+		find a successor
+			go right & go left as far as possible
+
+//remind to talk about printing trees+++++++++++++++++++++++++++++++++++++++++
+
+Traversing
+	LNR - in
+	NLR - pre
+	LRN - post
+------------------------------------------------------------------------------
+
+  pre - ABCDEF
+   in - DBAECF
+
+	DB	A	ECF
+		/\
+	   B  C
+	   /  /\
+	  D  E  F
+
+  pre - jebcgfhpksrxz
+   in - BCEFGHJKPRSXZ
+
+B-C E F-G-H	J	K P R S X Z
+
+J________
+|		 \
+E __	  P
+|	\	  |\
+B	 G	  K S_
+ \	 |\ 	| \
+  C	 F H	R  X
+				\
+				 Z
+
+------------------------------------------------------------------------------
+2-3 Trees
+
+[a|| ]	[ ||a]	[a||b]
+/ \		   / \	/ \/ \
+
+Insertion
+at the end, should have a valid 2-3 tree
+if have one piece of info, insert in remaining spot
+if you are forced* to put a 3rd piece of info in a node, that node splits into
+two nodes and the _middle_ is promoted
+
+1, 2, 3, 4, 5
+
+[1|| ]
+
+[1||2]
+
+  [ ||2]
+	 / \
+[ ||1] [3|| ]
+
+  [ ||2]
+	 / \
+[ ||1] [3||4]
+			
