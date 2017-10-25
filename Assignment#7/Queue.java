@@ -1,22 +1,21 @@
-class Stack<Type>
+class Queue<Type>
 {
 	private List<Type> l;
 
-	public Stack()
+	public Queue()
 	{
 		l = new List<Type>();
 	}
-	public Stack(Stack<Type> s)
+	public Queue(Queue<Type> q)
 	{
-		l = new List<Type>(s.l);
+		l = new List<Type>(q.l);
 	}
-	public void Push(Type data)
+	public void Enqueue(Type data)
 	{
-		l.First();
-		l.InsertBefore(data);
-		l.First();
+		l.Last();
+		l.InsertAfter(data);
 	}
-	public Type Pop()
+	public Type Dequeue()
 	{
 		l.First();
 		Type val = l.GetValue();
@@ -40,14 +39,14 @@ class Stack<Type>
 	{
 		return l.IsFull();
 	}
-	public boolean Equals(Stack<Type> s)
+	public boolean Equals(Queue<Type> q)
 	{
-		return l.Equals(s.l);
+		return l.Equals(q.l);
 	}
-	public Stack<Type> Add(Stack<Type> s)
+	public Queue<Type> Add(Queue<Type> q)
 	{
-		Stack<Type> temp = new Stack<Type>();
-		temp.l = this.l.Add(s.l);
+		Queue<Type> temp = new Queue<Type>();
+		temp.l = this.l.Add(q.l);
 		return temp;
 	}
 	public String toString()

@@ -1,0 +1,113 @@
+*declare queue q1
+q1=NULL
+q1.Size()=0
+q1.IsEmpty()=T
+q1.IsFull()=F
+q1.Peek()=null
+
+*Enqueue(i+100) 1000 times
+q1=100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 
+q1.Size()=50
+q1.IsEmpty()=F
+q1.IsFull()=T
+q1.Peek()=100
+
+*dequeue 10 times
+q1=110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 
+q1.Size()=40
+q1.IsEmpty()=F
+q1.IsFull()=F
+q1.Peek()=110
+
+*dequeue 1000 times
+q1=NULL
+q1.Size()=0
+q1.IsEmpty()=T
+q1.IsFull()=F
+q1.Peek()=null
+
+*enqueue 10 times with i*i
+q1=0 1 4 9 16 25 36 49 64 81 
+q1.Size()=10
+q1.IsEmpty()=F
+q1.IsFull()=F
+q1.Peek()=0
+
+*declare q2 as a copy of q1 (queue q2(q1))
+q2=0 1 4 9 16 25 36 49 64 81 
+q2.Size()=10
+q2.IsEmpty()=F
+q2.IsFull()=F
+q2.Peek()=0
+
+*declare q3 as a copy of q2 (queue q3 = q2)
+q3=0 1 4 9 16 25 36 49 64 81 
+q3.Size()=10
+q3.IsEmpty()=F
+q3.IsFull()=F
+q3.Peek()=0
+
+*reset q2 to 0
+q2=NULL
+q2.Size()=0
+q2.IsEmpty()=T
+q2.IsFull()=F
+q2.Peek()=null
+
+q1=0 1 4 9 16 25 36 49 64 81 
+q2=NULL
+q3=0 1 4 9 16 25 36 49 64 81 
+q1 == q2; =F
+q1 == q3; =T
+q1 != q3; =F
+
+*q1 = q1 + q2
+q1=0 1 4 9 16 25 36 49 64 81 
+q1.Size()=10
+q1.IsEmpty()=F
+q1.IsFull()=F
+q1.Peek()=0
+
+*dequeue q1 5 times
+q1=25 36 49 64 81 
+q2=NULL
+q3=0 1 4 9 16 25 36 49 64 81 
+
+*q1 = q1 + q3
+q1=25 36 49 64 81 0 1 4 9 16 25 36 49 64 81 
+q1.Size()=15
+q1.IsEmpty()=F
+q1.IsFull()=F
+q1.Peek()=25
+
+*set q1 to 0 then q1 = q1 + q3
+q1=0 1 4 9 16 25 36 49 64 81 
+
+q1 += q3;
+q1=0 1 4 9 16 25 36 49 64 81 0 1 4 9 16 25 36 49 64 81 
+q1.Size()=20
+q1.IsEmpty()=F
+q1.IsFull()=F
+q1.Peek()=0
+
+q1=0 1 4 9 16 25 36 49 64 81 0 1 4 9 16 25 36 49 64 81 
+q2=NULL
+q3=0 1 4 9 16 25 36 49 64 81 
+q3.Peek()=0
+
+*enqueue q3 8 times with i (backwards)
+q3=0 1 4 9 16 25 36 49 64 81 8 7 6 5 4 3 2 1 
+q3.Peek()=0
+
+*q3 += q1
+q3=0 1 4 9 16 25 36 49 64 81 8 7 6 5 4 3 2 1 0 1 4 9 16 25 36 49 64 81 0 1 4 9 16 25 36 49 64 81 
+q3.Size()=38
+q3.IsEmpty()=F
+q3.IsFull()=F
+q3.Peek()=0
+
+q4=a b c d e f g h i j k l m n o p q r s t u v w x y z 
+q4.Size()=26
+q4.IsEmpty()=F
+q4.IsFull()=F
+q4.Peek()=a

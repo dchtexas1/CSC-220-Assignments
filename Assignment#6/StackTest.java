@@ -9,7 +9,7 @@ public class StackTest
 		Stack<Integer> s1 = new Stack<Integer>();
 
 		System.out.println("*declare stack s1\ns1=" + s1); // stack initially set to 0
-/*		System.out.println("s1.Size()=" + s1.Size());
+		System.out.println("s1.Size()=" + s1.Size());
 		System.out.println("s1.IsEmpty()=" + ((s1.IsEmpty()) ? "T" : "F"));
 		System.out.println("s1.IsFull()=" + ((s1.IsFull()) ? "T" : "F"));
 		System.out.println("s1.Peek()=" + s1.Peek());
@@ -140,5 +140,5 @@ public class StackTest
 		System.out.println("s4.IsEmpty()=" + ((s4.IsEmpty()) ? "T" : "F"));
 		System.out.println("s4.IsFull()=" + ((s4.IsFull()) ? "T" : "F"));
 		System.out.println("s4.Peek()=" + s4.Peek());
-*/	}
+	}
 }
