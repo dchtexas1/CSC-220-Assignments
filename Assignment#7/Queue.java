@@ -51,10 +51,6 @@ class Queue<Type>
 	}
 	public String toString()
 	{
-		if (l.IsEmpty())
-		{
-			return "NULL";
-		}
 		return l.toString();
 	}
 }
