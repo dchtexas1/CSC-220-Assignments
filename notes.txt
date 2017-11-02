@@ -907,3 +907,124 @@ every non-leaf _will_ have 2 children
  n
  |\
 2n 2n+1
+------------------------------------------------------------------------------
+Sorting
+				O(n^2)
+		Size	Time
+		  10		 t
+		 100	  100t
+		1000	10000t
+------------------------------------------------------------------------------
+	O(n*lg(n))
+Shell Sort
+	Bubble Recap
+		_654321_
+	1	_54321_6
+	2	_4321_56
+	3	_321_456
+	4	_21_3456
+	5	_1_23456
+
+	Shell sort swaps lots of numbers at the same time
+
+	k=3
+13| 09, 05, 07| 12, 02, 03| 14, 06, 01|
+01, 09| 05, 03, 12| 02, 07, 14| 06, 13
+01, 09, 05| 03, 12, 02| 07, 14, 06| 13
+01, 09, 02, 03, 12, 05, 07, 14, 06, 13
+-------------------------------------------
+	k=2
+01| 09, 02| 03, 12| 05, 07| 14, 06| 13
+01, 09| 02, 03| 06, 05| 07, 14| 12, 13|
+01, 03, 02, 05, 06, 09, 07, 13, 12, 14
+-------------------------------------------
+	k=1
+01| 03| 02| 05| 06| 09| 07| 13| 12| 14|
+01, 02, 03, 05, 06, 07, 09, 12, 13, 14
+------------------------------------------------------------------------------
+	O(n*lg(n))
+	Heap Sort
+13, 09, 05, 07, 12, 02, 03, 14, 06, 01,
+
+heapify the list in a tree
+use the root to identify the largest value
+set aside the largest value/root and re-heapify the remaining values
+continue until the entire list has been sorted
+------------------------------------------------------------------------------
+pivot sort/quicksort
+
+13 9 5 7 12 2 3 14 2 3 14 6 1
+
+select a pivot point
+create two cursors, left and right //usually the left end
+left looks for a larger value //left goes first
+right looks for a reduced value
+if they are found, the values swap indices
+when they meet, the index left of the meeting place swaps indices with the pivot
+the pivot will no longer move; everything left is smaller, everything right is larger
+
+------------------------------------------------------------------------------
+p  l						   r
+42 41 17 21 13 267 170 85 3.14 1.67
+p					l			r
+42 41 17 21 13 1.67 170 85 3.14 267
+
+42 41 17 21 13 1.67 3.14 85 170 267
+==============================================================================
+Hash Tables
+
+arrays + lists
+
+	  [v1|v2|v3|v4|v5|v6|v7]
+index 00 01 02 03 04 05 06
+int[0,n)
+
+				<Key, value>
+Hash function
+
+
+
+
+
+
+				valid index
+
+				Hash(key) = Sigma[c in key](f(c))
+
+				index = sum of all characters % size of table
+	collisions
+	open addressing
+		linear //check the next hash location; m m+1 m+2 m+3 m+4
+		quaratic //m m+1 m+4 m+9 m+16
+------------------------------------------------------------------------------
+separate chaining
+	use linked list for collisions. O(m)
+
+Linear Probing(1) Linear(3) Quadratic Probing
+0|900  |900  |900  |
+1||82  |102  |
+2|12   |12   |12   |
+3||95  |82   |
+4|13474|13474|13474|
+5|35   |35   |35   |
+6||102 |75   |
+7|667  |667  |667  |
+8||75  |     |
+9||    |95   |
+
+h(K) = K % 10
+12,35,667,900,13474,75,82,95,102
+
+h(K) = K^2; mid digit
+0| 810000
+1| 9025
+2| 1225
+3|
+4| 144
+5| 10404
+6| 444889
+7| 5625
+8| 181548676
+9| 6724
+==============================================================================
+graph theory
