@@ -89,47 +89,59 @@ public class InfixToPostfix
 	// given a postfix queue, this method calculates the numeric result using a stack
 	public static double Calculate(Queue<Character> postfix)
 	{
-		Stack<Character> resultStack = new Stack<Character>();
-		Character token = postfix.Peek();
-		if (IsOperand(token))
+		Stack<Double> resultStack = new Stack<Double>();
+		Character token;
+		while(!postfix.IsEmpty())
+		//for (int i=0; i<postfix.Size(); i++)
 		{
-			resultStack.Push(token);
-		}
-		if (!IsOperand(token))
-		{
-			double val1 = resultStack.Pop();
-			double val2 = resultStack.Pop();
-			double ans;
-			switch (token)
+			token = postfix.Dequeue();
+			if (IsOperand(token))
 			{
-				case '^':
-				{
-					ans = Math.pow(val1, val2);
-					break;
-				}
-				case '*':
-				{
-					ans = val1*val2;
-					break;
-				}
-				case '/':
-				{
-					ans = val1/val2;
-					break;
-				}
-				case '+':
-				{
-					ans = val1+val2;
-					break;
-				}
-				case '-':
-				{
-					ans = val1-val2;
-					break;
-				}
+				resultStack.Push((double)(token - '0'));
 			}
-			resultStack.Push(ans);
+			if (!IsOperand(token))
+			{
+				double val2 = resultStack.Pop();
+				double val1 = resultStack.Pop();
+				double ans = 0;
+				switch (token)
+				{
+					case '^':
+					{
+						ans = Math.pow(val1, val2);
+						break;
+					}
+					case '*':
+					{
+						ans = val1*val2;
+						break;
+					}
+					case '/':
+					{
+						ans = val1/val2;
+						break;
+					}
+					case '+':
+					{
+						ans = val1+val2;
+						break;
+					}
+					case '-':
+					{
+						ans = val1-val2;
+						break;
+					}
+					case '%':
+					{
+						ans = val1 % val2;
+						break;
+					}
+				}
+				resultStack.Push(ans);
+			}
+			//postfix.Dequeue();
 		}
+		return resultStack.Pop();
 	}
 
 	// given a character from an expression, this method determines whether or not it is an operand
@@ -140,49 +152,40 @@ public class InfixToPostfix
 		{
 			return true;
 		}
+		return false;
 	}
 
 	// given a character that represents an operator from an expression, this method returns its infix priority
 	// it's ok to use the simple char primitive type here
-	public static int InfixPriority(char c)
+	public static int InfixPriority(Character c)
 	{
 		int priority = 0;
+		if (c == null)
+		{
+			return 0;
+		}
 		switch(c)
 		{
 			case '(':
-			{
 				priority = 4;
 				return priority;
-			}
 			case '^':
-			{
 				priority = 3;
 				return priority;
-			}
 			case '*':
-			{
 				priority = 2;
 				return priority;
-			}
 			case '/':
-			{
 				priority = 2;
 				return priority;
-			}
 			case '+':
-			{
 				priority = 1;
 				return priority;
-			}
 			case '-':
-			{
 				priority = 1;
 				return priority;
-			}
 			default:
-			{
 				return priority;
-			}
 		}
 	}
 
@@ -191,37 +194,29 @@ public class InfixToPostfix
 	public static int StackPriority(Character c)
 	{
 		int priority = 0;
+		if (c == null)
+		{
+			return 0;
+		}
 		switch(c)
 		{
 			case '^':
-			{
 				priority = 2;
 				return priority;
-			}
 			case '*':
-			{
 				priority = 2;
 				return priority;
-			}
 			case '/':
-			{
 				priority = 2;
 				return priority;
-			}
 			case '+':
-			{
 				priority = 1;
 				return priority;
-			}
 			case '-':
-			{
 				priority = 1;
 				return priority;
-			}
 			default:
-			{
 				return priority;
-			}
 		}
 	}
 }

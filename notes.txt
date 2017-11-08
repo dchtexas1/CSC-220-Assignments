@@ -1028,3 +1028,58 @@ h(K) = K^2; mid digit
 9| 6724
 ==============================================================================
 graph theory
+
+use matrix to track relations and/or weights
+use array of lists
+
+depth-first
+	go as far as you can
+	back up and go as far as you can
+breadth-first
+	go as wide, then go deeper
+
+
+0,1,4,3,2,5,7,8,6,9
+0,1,3,4,2,5,7,8,6,9 //0,6,9,1,3,4,2,5,7,8
+
+minimum-spanning tree
+	starting with a vertex,
+	what is the cheapest way out of what we already know
+
+==============================================================================
+Structure|search|insert|deletion|traverse|//sorting->O(n^2)
+array|O(n)|O(1)|O(n)|O(n)|
+ordered array|O(lg(n))|O(n)|O(n)|O(n)|
+linked list|O(n)|O(1)|O(n)|O(n)|
+ordered linked list|O(n)|O(n)|O(n)|O(n)|
+binary tree|O(lg(n))|O(lg(n))|O(lg(n))|O(n)|
+hash table|O(1)|O(1)|O(1)|n/a
+------------------------------------------------------------------------------
+array
+	fixed size
+	contiguous memory locations
+
+
+
+start ->	small amt data	-y> is data predictable -n> linked list
+					n-v					n-v
+hashtable<y-search&insertionfast	search>insertionspeed-y>orderedarray
+					n-v					n-v
+binarysearchtree<y-keydistrandom		array
+					n-v
+				balancedtree
+------------------------------------------------------------------------------
+10pts	T(n) O()
+15pts	InfixToPostfix & eval
+40pts	binary tree & heaps
+			different operation, traversing, & representations
+15pts	sorting
+20pts	2-3 trees
+20pts	hash tables
+40pts	graphs
+		representation, searches/traversals, minimum spanning trees
+10pts	converting non-binary trees to binary trees	//NEED TO GO OVER
+??pts	creating a tree based on its in/preorder traversals*
+
+
+*subect to change at any time
